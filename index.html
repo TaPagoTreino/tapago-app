@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,59 +7,21 @@
   <title>Tá Pago! – Treinos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #111;
-      color: #ccc;
-    }
-    header {
-      background-color: #8b5cf6;
-      color: #eee;
-      padding: 1rem;
-      text-align: center;
-    }
-    main {
-      padding: 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .question-slide {
-      padding: 1rem;
-      border: 1px solid #444;
-      background-color: #1e1e1e;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .question-slide select, .question-slide input {
-      margin-top: 10px;
-      padding: 8px;
-      border-radius: 5px;
-      border: 1px solid #666;
-      width: 80%;
-      background-color: #111;
-      color: #eee;
-      font-family: 'Inter', sans-serif;
-    }
+    body { font-family: 'Inter', sans-serif; background-color: #111; color: #ccc; margin: 0; padding: 0; }
+    header { background-color: #8b5cf6; color: #eee; padding: 1rem; text-align: center; }
+    main { padding: 1rem; max-width: 800px; margin: 0 auto; }
+    .question-slide { padding: 1rem; border: 1px solid #444; background: #1e1e1e; margin-bottom: 1rem; border-radius: 8px; text-align: center; }
+    .question-slide select, .question-slide input { margin-top: 10px; padding: 8px; border-radius: 5px; border: 1px solid #666; width: 80%; background-color: #111; color: #eee; }
     .hidden { display: none; }
-    button {
-      background-color: #8b5cf6;
-      color: #eee;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 1rem;
-      font-family: 'Inter', sans-serif;
-    }
+    button { background-color: #8b5cf6; color: #eee; border: none; padding: 0.6rem 1rem; border-radius: 4px; cursor: pointer; margin-top: 1rem; font-family: 'Inter', sans-serif; }
+    .day { background: #222; border-radius: 8px; margin: 1rem 0; padding: 1rem; }
+    .btn-done { background-color: #444; color: white; border-radius: 8px; padding: 10px 18px; border: 1px solid #666; margin-top: 8px; cursor: pointer; transition: all 0.2s ease; }
+    .btn-done.done { background-color: #16a34a; border-color: #16a34a; color: #fff; }
+    .popup { display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #222; color: #0f0; padding: 12px 24px; border-radius: 10px; font-weight: bold; font-size: 1rem; z-index: 999; opacity: 0.95; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Tá Pago! – App de Musculação</h1>
-  </header>
+  <header><h1>Tá Pago! – App de Musculação</h1></header>
   <main>
     <section id="onboarding-section">
       <div class="question-slide" id="q1">
@@ -66,7 +29,6 @@
         <input type="number" id="age" min="10" max="100" value="25" />
         <button onclick="nextQuestion(1)">Próximo</button>
       </div>
-
       <div class="question-slide hidden" id="q2">
         <h2>Qual seu nível de experiência?</h2>
         <select id="experience">
@@ -76,18 +38,15 @@
         </select>
         <button onclick="nextQuestion(2)">Próximo</button>
       </div>
-
       <div class="question-slide hidden" id="q3">
         <h2>Qual seu objetivo principal?</h2>
         <select id="goal">
           <option value="Ganho de massa">Ganho de massa</option>
           <option value="Perda de peso">Perda de peso</option>
           <option value="Condicionamento geral">Condicionamento geral</option>
-          <option value="Outro">Outro</option>
         </select>
         <button onclick="nextQuestion(3)">Próximo</button>
       </div>
-
       <div class="question-slide hidden" id="q4">
         <h2>Qual o estilo de academia que você tem acesso?</h2>
         <select id="equipment">
@@ -97,7 +56,6 @@
         </select>
         <button onclick="nextQuestion(4)">Próximo</button>
       </div>
-
       <div class="question-slide hidden" id="q5">
         <h2>Quais dias da semana você quer treinar?</h2>
         <label><input type="checkbox" value="Segunda" /> Segunda</label><br>
@@ -107,11 +65,15 @@
         <label><input type="checkbox" value="Sexta" /> Sexta</label><br>
         <label><input type="checkbox" value="Sábado" /> Sábado</label><br>
         <label><input type="checkbox" value="Domingo" /> Domingo</label><br>
-       <button onclick="gerarPlano()">Gerar plano de treino</button>
-
+        <button onclick="gerarPlano()">Gerar plano de treino</button>
       </div>
     </section>
+    <section id="plan-section" class="hidden">
+      <h2>Seu plano de treino</h2>
+      <div id="plan-container"></div>
+    </section>
   </main>
+  <div id="popup" class="popup"></div>
   <script src="main.js"></script>
 </body>
 </html>
