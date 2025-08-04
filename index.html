@@ -14,7 +14,7 @@
       color: #ccc;
     }
     header {
-      background-color: #8b5cf6; /* tom mais bonito de roxo */
+      background-color: #8b5cf6;
       color: #eee;
       padding: 1rem;
       text-align: center;
@@ -137,76 +137,7 @@
     <h1>Tá Pago! – App de Musculação</h1>
   </header>
   <main>
-    <!-- O restante do conteúdo do app continua daqui para baixo -->
-<!-- Tela de perguntas -->
-<section id="onboarding-section">
-<div class="question-slide" id="q1">
-<h2>Qual a sua idade?</h2>
-<input id="age" max="100" min="10" type="number" value="25"/>
-<button onclick="nextQuestion(1)">Próximo</button>
-</div>
-<div class="question-slide hidden" id="q2">
-<h2>Qual seu nível de experiência?</h2>
-<select id="experience">
-<option value="Iniciante">Iniciante</option>
-<option value="Intermediário">Intermediário</option>
-<option value="Avançado">Avançado</option>
-</select>
-<button onclick="nextQuestion(2)">Próximo</button>
-</div>
-<div class="question-slide hidden" id="q3">
-<h2>Qual seu objetivo principal?</h2>
-<select id="goal">
-<option value="Ganho de massa">Ganho de massa</option>
-<option value="Perda de peso">Perda de peso</option>
-<option value="Condicionamento geral">Condicionamento geral</option>
-<option value="Outro">Outro</option>
-</select>
-<button onclick="nextQuestion(3)">Próximo</button>
-</div>
-<div class="question-slide hidden" id="q4">
-<h2>Qual o estilo de academia que você tem acesso?</h2>
-<select id="equipment">
-<option value="Academia de rede">Academia de rede</option>
-<option value="Mais simples">Mais simples</option>
-<option value="Avançada">Avançada</option>
-</select>
-<button onclick="nextQuestion(4)">Próximo</button>
-</div>
-<div class="question-slide hidden" id="q5">
-<h2>Quais dias da semana você quer treinar?</h2>
-<div id="days">
-<label><input type="checkbox" value="Segunda"/> Segunda</label><br/>
-<label><input type="checkbox" value="Terça"/> Terça</label><br/>
-<label><input type="checkbox" value="Quarta"/> Quarta</label><br/>
-<label><input type="checkbox" value="Quinta"/> Quinta</label><br/>
-<label><input type="checkbox" value="Sexta"/> Sexta</label><br/>
-<label><input type="checkbox" value="Sábado"/> Sábado</label><br/>
-<label><input type="checkbox" value="Domingo"/> Domingo</label><br/>
-</div>
-<button onclick="gerarPlano()">Gerar plano de treino</button>
-</div>
-</section>
-<!-- Tela de plano de treino -->
-<section class="hidden" id="plan-section">
-<h2>Seu plano de treino</h2>
-<div id="plan-days-nav" style="text-align: center; margin-bottom: 1rem;"></div>
-<div id="plan-container"></div>
-<button id="backBtn">Voltar ao questionário</button>
-</section>
-<!-- Tela de histórico -->
-<section class="hidden" id="history-section">
-<h2>Histórico de treinos</h2>
-<div id="history-container"></div>
-<button id="clearHistoryBtn">Limpar histórico</button>
-</section>
-<nav>
-<a id="navHome">Questionário</a>
-<a id="navPlan">Plano</a>
-<a id="navHistory">Histórico</a>
-</nav>
-</main>
-<script src="main.js"></script>
-<div class="popup" id="popup"></div>
+    <!-- Conteúdo continua aqui -->
+  </main>
 </body>
 </html>
