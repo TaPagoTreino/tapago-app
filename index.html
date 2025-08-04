@@ -24,94 +24,6 @@
       max-width: 800px;
       margin: 0 auto;
     }
-    h1 {
-      margin-top: 0;
-    }
-    .hidden {
-      display: none;
-    }
-    .day {
-      border: 1px solid #444;
-      border-radius: 4px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background-color: #eee;
-    }
-    .exercise {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-    .exercise.done {
-      background-color: #e8f5e9;
-    }
-    .exercise label {
-      margin-left: 0.5rem;
-    }
-    button {
-      background-color: #8b5cf6;
-      color: #eee;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 1rem;
-      font-family: 'Inter', sans-serif;
-    }
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    nav {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    nav a {
-      margin-right: 1rem;
-      cursor: pointer;
-      color: #8b5cf6;
-      text-decoration: underline;
-    }
-    .history-item {
-      border-bottom: 1px solid #ddd;
-      padding: 0.5rem 0;
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #222;
-      color: #0f0;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1rem;
-      z-index: 999;
-      opacity: 0.95;
-    }
-    .btn-done {
-      background-color: #444;
-      color: white;
-      border-radius: 8px;
-      padding: 10px 18px;
-      border: 1px solid #666;
-      margin-top: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: 'Inter', sans-serif;
-    }
-    .btn-done.done {
-      background-color: #16a34a;
-      border-color: #16a34a;
-      color: #fff;
-    }
-    img.gif-exercicio {
-      max-width: 100px;
-      margin-left: 1rem;
-      border-radius: 8px;
-    }
     .question-slide {
       padding: 1rem;
       border: 1px solid #444;
@@ -130,14 +42,75 @@
       color: #eee;
       font-family: 'Inter', sans-serif;
     }
+    .hidden { display: none; }
+    button {
+      background-color: #8b5cf6;
+      color: #eee;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Tá Pago! – App de Musculação</h1>
+    <h1>Tá Pago! – App de Musculação</h1>
   </header>
   <main>
-    <!-- Conteúdo continua aqui -->
+    <section id="onboarding-section">
+      <div class="question-slide" id="q1">
+        <h2>Qual a sua idade?</h2>
+        <input type="number" id="age" min="10" max="100" value="25" />
+        <button onclick="nextQuestion(1)">Próximo</button>
+      </div>
+
+      <div class="question-slide hidden" id="q2">
+        <h2>Qual seu nível de experiência?</h2>
+        <select id="experience">
+          <option value="Iniciante">Iniciante</option>
+          <option value="Intermediário">Intermediário</option>
+          <option value="Avançado">Avançado</option>
+        </select>
+        <button onclick="nextQuestion(2)">Próximo</button>
+      </div>
+
+      <div class="question-slide hidden" id="q3">
+        <h2>Qual seu objetivo principal?</h2>
+        <select id="goal">
+          <option value="Ganho de massa">Ganho de massa</option>
+          <option value="Perda de peso">Perda de peso</option>
+          <option value="Condicionamento geral">Condicionamento geral</option>
+          <option value="Outro">Outro</option>
+        </select>
+        <button onclick="nextQuestion(3)">Próximo</button>
+      </div>
+
+      <div class="question-slide hidden" id="q4">
+        <h2>Qual o estilo de academia que você tem acesso?</h2>
+        <select id="equipment">
+          <option value="Academia de rede">Academia de rede</option>
+          <option value="Mais simples">Mais simples</option>
+          <option value="Avançada">Avançada</option>
+        </select>
+        <button onclick="nextQuestion(4)">Próximo</button>
+      </div>
+
+      <div class="question-slide hidden" id="q5">
+        <h2>Quais dias da semana você quer treinar?</h2>
+        <label><input type="checkbox" value="Segunda" /> Segunda</label><br>
+        <label><input type="checkbox" value="Terça" /> Terça</label><br>
+        <label><input type="checkbox" value="Quarta" /> Quarta</label><br>
+        <label><input type="checkbox" value="Quinta" /> Quinta</label><br>
+        <label><input type="checkbox" value="Sexta" /> Sexta</label><br>
+        <label><input type="checkbox" value="Sábado" /> Sábado</label><br>
+        <label><input type="checkbox" value="Domingo" /> Domingo</label><br>
+        <button onclick="gerarPlano()">Gerar plano de treino</button>
+      </div>
+    </section>
   </main>
+  <script src="main.js"></script>
 </body>
 </html>
